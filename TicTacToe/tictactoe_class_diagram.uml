@@ -1,0 +1,33 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title TicTacToe - Class Diagram
+
+class Main {
+  + main: void { args: String[] }
+}
+
+class Grid{
+  - grid: char[][]
+  - mySeed: char
+  - oppSeed: char
+  
+  + Grid()
+  + set: {row: int, col: int, p: char}
+  + get: char {row: int, col: int}
+  + print(): void
+  + wstate(): boolean
+  + move(): int[]
+  + minimax: {depth: int, player: char}
+  + generateMoves(): List<int[]>
+  + evaluate(): int 
+  + evaluateLine: int {row1: int, col1: int, row2: int, col2: int, row3: int, col3: int}
+}
+
+
+
+Grid <|-up- Main: Uses
+
+@enduml
