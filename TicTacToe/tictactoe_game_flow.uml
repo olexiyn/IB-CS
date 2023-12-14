@@ -1,0 +1,31 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title TicTacToe Game Flow
+
+
+start
+
+:Game starts;
+note right: with config from Start Flow
+
+repeat
+
+:The **Next** Player (User or Computer) selects Cell to fill (Row and Column);
+
+if (Player makes **IMPOSSIBLE** step) then (YES)
+  :Game re-asks to make a proper move;
+else (NO)
+  :Given Cell is filled by the symbol of Player;
+endif
+
+
+repeat while (**Repeat if Player doesn't win AND free Cells are available**)
+
+:Game stops;
+
+stop
+
+@enduml
