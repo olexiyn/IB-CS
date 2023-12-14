@@ -3,6 +3,30 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     Grid g = new Grid();
+    System.out.println(""
+        + "\n                 ____"
+        + "\n               {} _  \\ "
+        + "\n                 |__ \\ "
+        + "\n              /_____\\ "
+        + "\n              \\o o)\\)_______"
+        + "\n              (<  ) /#######\\ "
+        + "\n            __{'~` }#########|"
+        + "\n           /  {   _}_/########|"
+        + "\n          /   {  / _|#/ )####|"
+        + "\n         /   \\_~/ /_ \\  |####|"
+        + "\n         \\______\\/  \\ | |####|"
+        + "\n          \\__________\\|/#####|"
+        + "\n           |__[X]_____/ \\###/"
+        + "\n           /___________\\ "
+        + "\n            |    |/    | "
+        + "\n            |___/ |___/"
+        + "\n           _|   /_|   /"
+        + "\n          (___,_(___,_)"
+        + "\n"
+        + "\n    Merry Christmas, X-O, X-O, X-O!"
+        + "\n    Welcome to Tic-Tac-Toe!"
+        + "\n");
+
     System.out.println("Please, choose the mode that you want to play: ");
     Scanner answ = new Scanner(System.in);
     System.out.println("1. Enter 'PVP' to play Player vs Player mode.");
