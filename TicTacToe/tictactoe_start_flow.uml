@@ -1,0 +1,39 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title TicTacToe Start Flow
+
+
+start
+
+:Output the Intro; 
+note right: Shows Santa with X-O and XO-XO-XO play on words
+
+:Christmas Edition; 
+note left: Not to forget to wish a Merry Christmas!
+
+if (**Propose to chose Game Mode: PvP or PvC**) then (PVP)
+  :Player to Player Game Mode starts;
+else (PVC)
+  :Player to Computer Game Mode starts;
+  if (Player or Computer First) then (Player)
+  :Player makes a step;
+  else (Computer)
+  :Computer starts first;
+  endif
+endif
+
+if (Christmas Edition) then (YES)
+  :SnowFlake and SnowMan symbols are in use instead of X and O;
+else (NO)
+  :Use common X-O symbols ;
+endif
+
+
+:Game with set params and mode starts;
+
+stop
+
+@enduml
