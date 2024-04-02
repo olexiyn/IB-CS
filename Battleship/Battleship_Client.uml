@@ -1,0 +1,73 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title Battleship Client
+
+class Battleship_Client {
+  - hostName (String): Server hostname.
+  - portNumber (int): Network port number.
+  - echoSocket (Socket): Socket for network communication.
+  - out (PrintWriter): Output stream for sending messages.
+  - player (Player): Represents the human player.
+  - computer (Player): Represents the computer player.
+  - sc (Scanner): Scanner for user input.
+
+  + main(String[]): Main method of the application.
+  + askForGuess(): Prompts player for guessing the opponent's ship location.
+  + sendmessage(String): Sends a message to the server.
+
+}
+
+class Player{
+  - SHIP_LENGTHS (int[]): Array containing lengths of the ships.
+  - ships (Ship[]): Array of ships.
+  - MY_GRID (Grid): Player's own grid.
+  - OPP_GRID (Grid): Opponent's grid.
+  - ships_added (int): Counter for the number of ships added.
+  - hp (int): Health points or hit points of the player.
+
+  + Player(): Constructor to initialize the player.
+  + chooseShipLocation(Ship, int, int, int): Places a ship on the grid.
+}
+
+class Grid{
+  - grid (Location[][]): 2D array representing the game grid.
+  - NUM_ROWS, NUM_COLS (int): Constants for grid dimensions.
+
+  + Grid(): Constructor to initialize the grid.
+  + Methods to manipulate the grid like markHit, markMiss, etc.
+}
+
+class Ship{
+  - row, col, length, direction (int): Ship properties.
+
+  + Ship(int): Constructor to initialize the ship with its length.
+  + Methods for setting location, direction, and retrieving ship details.
+}
+
+class Location{
+
+  - UNGUESSED, HIT, MISSED (int): Constants for location status.
+  - has_ship (boolean): Indicates if the location has a ship.
+  - status (int): Current status of the location (hit, missed, unguessed).
+
+  + Location(): Constructor to initialize location status.
+  + Methods to check and change the status of the location.
+}
+
+class Randomizer{
+  - theInstance (Random): Singleton instance of the randomizer.
+
+  + Randomizer(): Constructor.
+  + Static methods like nextBoolean, nextInt, nextDouble for random values.
+}
+
+Battleship_Client ---> Player
+Battleship_Client ---> Randomizer
+Grid ---> Location
+Player "1" -- "0..*" Ship
+Player -- "2" Grid
+
+@enduml
