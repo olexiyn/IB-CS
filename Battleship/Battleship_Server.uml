@@ -1,0 +1,82 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title Battleship Server
+
+class Battleship_Server {
+  - player: Player
+  - computer: Player
+  
+  + main(String[]): void
+  + askForGuess(): void
+}
+
+class Player {
+  - ships: Ship[]
+  - MY_GRID: Grid
+  - OPP_GRID: Grid
+  
+  + chooseShipLocation(Ship, int, int, int): void
+  + printMyShips(): void
+  + printOpponentGuesses(): void
+  + printMyGuesses(): void
+  + recordOpponentGuess(int, int): boolean
+}
+
+
+class Ship {
+  - row: int
+  - col: int
+  - length: int
+  - direction: int
+  
+  + setLocation(int, int): void
+  + setDirection(int): void
+  + getRow(): int
+  + getCol(): int
+  + getLength(): int
+  + getDirection(): int
+}
+
+class Grid {
+  - grid: Location[][]
+  
+  + markHit(int, int): void
+  + markMiss(int, int): void
+  + setStatus(int, int, int): void
+  + getStatus(int, int): int
+  + hasShip(int, int): boolean
+  + addShip(Ship): void
+}
+
+
+class Location {
+  - has_ship: boolean
+  - status: int
+  
+  + markHit(): void
+  + markMiss(): void
+  + setShip(boolean): void
+  + getStatus(): int
+}
+
+
+class Randomizer {
+  - theInstance: Random
+  
+  + getInstance(): Random
+  + nextBoolean(): boolean
+  + nextInt(): int
+  + nextDouble(): double
+}
+
+Player "1" -- "0..*" Ship
+Player -- "2" Grid
+Grid "*" -- "1" Location
+Battleship_Server -- Player
+Battleship_Server -- Randomizer
+
+
+@enduml
