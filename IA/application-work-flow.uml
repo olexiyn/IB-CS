@@ -1,0 +1,45 @@
+@startuml
+
+actor User
+participant "Main Execution Flow" as App
+participant "Backup Service" as Backup
+participant "Business Typeform Data" as BusinessData
+participant "LLM: Generate Text and Images" as SiteGen
+participant "Cache Service" as Cache
+
+== Initialization ==
+note left of App
+The process of generating a new website starts.
+end note
+
+User -> App : Start Website Generation
+
+App -> Backup : Backup current website
+Backup -> App : Backup complete
+
+== Data Gathering ==
+App -> BusinessData : Get Data about Business
+BusinessData -> App : Data received
+
+App -> App : Define Business category
+
+== Site Generation ==
+App -> SiteGen : Generate site Title and Subtitle
+SiteGen -> App : Titles generated
+App -> App : Save data to the website
+
+App -> SiteGen : Generate layout and base colors
+SiteGen -> App : Layout and colors generated
+App -> App : Save data to the website
+
+App -> SiteGen : Generate website widget pages data: About Us, Products, Services, Blog
+SiteGen -> App : Widget data generated
+App -> App : Save data to the website
+
+== Finalization ==
+App -> Cache : Reset website cache to make all changes live
+Cache -> App : Cache reset complete
+
+User <- App : Website Generation Complete
+
+@enduml
