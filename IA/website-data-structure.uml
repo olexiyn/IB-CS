@@ -1,0 +1,103 @@
+@startuml
+!define Rectangle class
+!theme vibrant
+
+title Website Data Structure
+
+Rectangle Website{
+}
+
+Rectangle Business_Info{
+  :Business Name:
+  :Category of Business:
+  :Phone:
+  :Address:
+  :Additional Info:
+}
+
+Rectangle Website_Setings{
+  :Template:
+  :Color scheme:
+  :Pages structure:
+}
+
+Rectangle Home_Page{
+  :Title:
+  :Subtitle:
+  :Header image:
+}
+
+Rectangle AboutUs{
+  :Text:
+  :Routes to About Us pages:
+}
+
+Rectangle Products{
+  :Text:
+  :List of Categories:
+}
+
+Rectangle Services{
+  :Text:
+  :List of Categories:
+}
+
+Rectangle Blog{
+  :Text:
+  :Routes to Articles:
+}
+
+Rectangle AboutUs_Pages{
+  :Title:
+  :Text:
+  :Images:
+}
+
+Rectangle Product_Category{
+  :Text:
+  :List of Products:
+}
+
+Rectangle Service_Category{
+  :Text:
+  :List of Services:
+}
+
+Rectangle Article{
+  :Title:
+  :Text:
+  :Images:
+}
+
+Rectangle Product{
+  :Name:
+  :Description:
+  :Images:
+  :Price:
+}
+
+Rectangle Service{
+  :Title:
+  :Text:
+  :Images:
+  :Price (optional):
+}
+
+Website --> Website_Setings
+Website --> Business_Info
+Website --> Home_Page
+
+Home_Page --> AboutUs
+Home_Page --> Products
+Home_Page --> Services
+Home_Page --> Blog
+
+AboutUs --> AboutUs_Pages
+Products --> Product_Category
+Services --> Service_Category
+Blog --> Article
+
+Product_Category --> Product
+Service_Category --> Service
+
+@enduml
