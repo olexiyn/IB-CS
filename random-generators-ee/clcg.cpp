@@ -22,7 +22,7 @@ int main() {
     CombiningGenerator gen(1664525, 8017204223, 4248967296, 123456789, 
                            22695477, 1, 4294967296, 987654321);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1000000; i++) {
         std::cout << gen.next() << std::endl;
     }
 

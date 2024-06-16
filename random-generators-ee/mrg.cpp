@@ -36,7 +36,7 @@ int main() {
 
     MultipleRecursiveGenerator mrg(multipliers, modulus, seed);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1000000; i++) {
         std::cout << mrg.next() << std::endl;
     }
 

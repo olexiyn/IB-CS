@@ -20,7 +20,7 @@ public:
 int main() {
     LinearCongruentialGenerator lcg(1664525, 1013904223, 4294967296, 123456789);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1000000; i++) {
         std::cout << lcg.next() << std::endl;
     }
 
