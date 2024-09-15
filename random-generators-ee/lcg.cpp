@@ -1,27 +1,27 @@
 #include <iostream>
 
-class LinearCongruentialGenerator {
+class LCG {
 private:
-    unsigned long a; 
-    unsigned long c; 
+    unsigned long a;
+    unsigned long c;
     unsigned long m;
     unsigned long seed;
 
 public:
-    LinearCongruentialGenerator(unsigned long multiplier, unsigned long increment, unsigned long modulus, unsigned long initialSeed)
-        : a(multiplier), c(increment), m(modulus), seed(initialSeed) {}
-    
-    unsigned long next () {
+    LCG(unsigned long multi, unsigned long incr, unsigned long modl, unsigned long iseed)
+        : a(multi), c(incr), m(modl), seed(iseed) {}
+
+    unsigned long next() {
         seed = (a * seed + c) % m;
         return seed;
     }
 };
 
 int main() {
-    LinearCongruentialGenerator lcg(1664525, 1013904223, 4294967296, 123456789);
+    LCG lcg(1664525, 1013904223, 4294967296, 123456789);
 
     for (int i = 0; i < 1000000; i++) {
-        std::cout << lcg.next() << std::endl;
+        std::cout << (lcg.next()%100) << std::endl;
     }
 
     return 0;

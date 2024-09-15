@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-class MultipleRecursiveGenerator {
+class MRG {
 private:
     std::vector<unsigned long> a;
     unsigned long m;
@@ -10,8 +10,8 @@ private:
     int index;
 
 public:
-    MultipleRecursiveGenerator(std::vector<unsigned long> multipliers, unsigned long modulus, std::vector<unsigned long> seed)
-        : a(multipliers), m(modulus), X(seed), k(multipliers.size()), index(0) {}
+    MRG(std::vector<unsigned long> multi, unsigned long modl, std::vector<unsigned long> seed)
+        : a(multi), m(modl), X(seed), k(multi.size()), index(0) {}
 
     unsigned long next() {
         unsigned long next_val = 0;
@@ -26,18 +26,20 @@ public:
 };
 
 int main() {
-    std::vector<unsigned long> multipliers;
-    multipliers.push_back(150);
-    multipliers.push_back(300);
-    unsigned long modulus = 2147483647;
+    std::vector<unsigned long> multi;
+    multi.push_back(150);
+    multi.push_back(300);
+    
+    unsigned long modl = 2147483647;
+    
     std::vector<unsigned long> seed;
-    seed.push_back(123456);
-    seed.push_back(654321);
+    seed.push_back(123456789);
+    seed.push_back(987654321);
 
-    MultipleRecursiveGenerator mrg(multipliers, modulus, seed);
+    MRG mrg(multi, modl, seed);
 
     for (int i = 0; i < 1000000; i++) {
-        std::cout << mrg.next() << std::endl;
+        std::cout << (mrg.next()%100) << std::endl;
     }
 
     return 0;
