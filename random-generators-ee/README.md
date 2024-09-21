@@ -7,3 +7,5 @@
 - **lcg_results** : *Results of generation for LCG*
 - **mrg_results** : *Results of generation for MRG*
 - **clcg_results** : *Results of generation for CLCG*
+- **combine.cpp** : *Combines results of the generation into a table*
+- **output.csv** : *Resultant table of combine*
